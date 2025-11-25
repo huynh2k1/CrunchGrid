@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 using UnityEngine.UI;
-public class buttonEffect : MonoBehaviour
+public class buttonEffect : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] Button button;
 

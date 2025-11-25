@@ -5,12 +5,12 @@ public class uiManager : baseUIManager
 
     private void OnEnable()
     {
-        
+        uiHome.HTPClickEvent += EnableHowToPlay;
     }
 
     private void OnDestroy()
     {
-        
+        uiHome.HTPClickEvent -= EnableHowToPlay;    
     }
 
     void EnableHowToPlay()

@@ -1,16 +1,6 @@
 using UnityEngine;
 
-public class uiHowToPlay : MonoBehaviour
+public class uiHowToPlay : basePanel
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public override UI Type => UI.HowToPlay;
 }
