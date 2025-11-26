@@ -1,4 +1,5 @@
 ﻿using NaughtyAttributes;
+using System;
 using UnityEngine;
 
 public class Stick : MonoBehaviour
@@ -18,6 +19,8 @@ public class Stick : MonoBehaviour
     private bool _isRotating = false;        // Chặn spam click
     private float _previousAngle;            // Lưu góc trước khi quay
     private bool _shouldRollback = false;    // Đánh dấu rollback
+
+    public event Action OnStickCompleteEvent;
 
     private void Awake()
     {
@@ -81,10 +84,10 @@ public class Stick : MonoBehaviour
         if (Mathf.Approximately(targetAngle, 180f))
         {
             Complete();
-            Debug.Log($"{name} COMPLETE (-180°)");
+            //Debug.Log($"{name} COMPLETE (-180°)");
             if (GetRoot().IsAllComplete())
             {
-                Debug.Log("Cả cây đã COMPLETE!");
+                OnStickCompleteEvent?.Invoke();
             }
         }
 
@@ -141,7 +144,7 @@ public class Stick : MonoBehaviour
             childStick = null;
         }
 
-        childStick = Instantiate(_stickPrefabs[Random.Range(0, _stickPrefabs.Length - 1)], _anchorPos.position, Quaternion.identity);
+        childStick = Instantiate(_stickPrefabs[UnityEngine.Random.Range(0, _stickPrefabs.Length - 1)], _anchorPos.position, Quaternion.identity);
         childStick._stickParent = this;
         childStick.SetParent(transform);
         childStick.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, _angle));

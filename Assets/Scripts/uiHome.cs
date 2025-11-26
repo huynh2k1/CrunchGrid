@@ -25,7 +25,6 @@ public class uiHome : baseUI
 
     void HTPClicked()
     {
-        Debug.Log("Click");
         HTPClickEvent?.Invoke();
     }
 }

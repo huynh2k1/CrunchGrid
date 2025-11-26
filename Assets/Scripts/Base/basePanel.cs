@@ -74,6 +74,14 @@ public class basePanel : baseUI
         TweenMain(true);
     }
 
+    public void Disable(Action actionDone)
+    {
+        TweenMain(false, () =>
+        {
+            actionDone?.Invoke();   
+            ShowMask(false);
+        });
+    }
 
     public override void Disable()
     {

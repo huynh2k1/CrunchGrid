@@ -25,4 +25,5 @@ public enum UI
     SelectLevel,
     HowToPlay,
     Setting,
+    Lose
 }
