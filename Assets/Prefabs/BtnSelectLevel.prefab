@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 29c23ab9bddb3d946adacccb9950fd3c, type: 3}
     - target: {fileID: 6040513552253882489, guid: c14b17738b2ad8f4f965c8a00df46a38, type: 3}
       propertyPath: m_Name
-      value: BtnSelectLevel Variant
+      value: BtnSelectLevel
       objectReference: {fileID: 0}
     - target: {fileID: 6472951178339294937, guid: c14b17738b2ad8f4f965c8a00df46a38, type: 3}
       propertyPath: m_Pivot.x
@@ -231,6 +231,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6472951178339294937, guid: c14b17738b2ad8f4f965c8a00df46a38, type: 3}
   m_PrefabInstance: {fileID: 7527288969571032907}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3921516117989883745 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6780814987762737194, guid: c14b17738b2ad8f4f965c8a00df46a38, type: 3}
+  m_PrefabInstance: {fileID: 7527288969571032907}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4130781450218670511 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5847139855547619044, guid: c14b17738b2ad8f4f965c8a00df46a38, type: 3}
@@ -262,3 +273,4 @@ MonoBehaviour:
   ID: 0
   _btn: {fileID: 4130781450218670511}
   _lock: {fileID: 6890840497642756945}
+  _txtLevel: {fileID: 3921516117989883745}

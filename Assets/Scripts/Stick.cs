@@ -1,4 +1,5 @@
-﻿using NaughtyAttributes;
+﻿using DG.Tweening;
+using NaughtyAttributes;
 using System;
 using UnityEngine;
 
@@ -7,7 +8,10 @@ public class Stick : MonoBehaviour
     public static Stick StickCurrentlyRotating;
 
     public bool isComplete;
+    public bool isLocked;
+
     [SerializeField] Transform _anchorPos;
+    [SerializeField] GameObject _locked;
     BoxCollider _boxCollider;
     public Stick _stickParent;
 
@@ -38,14 +42,34 @@ public class Stick : MonoBehaviour
         {
             Complete();
         }
+
+        CheckLock();
     }
 
     void OnMouseDown()
     {
+        if (GetRoot().isLocked)
+            return;
         if (_isRotating) return; // đang xoay → không cho click tiếp
 
         StickCurrentlyRotating = this;
         StartCoroutine(RotateStep());
+    }
+
+    void CheckLock()
+    {
+        ShowLock(isLocked);
+    }
+
+    public void Unlock()
+    {
+        isLocked = false;
+        ShowLock(false);
+    }
+
+    void ShowLock(bool isShow)
+    {
+        _locked.SetActive(isShow);
     }
 
     private System.Collections.IEnumerator RotateStep()
@@ -87,11 +111,21 @@ public class Stick : MonoBehaviour
             //Debug.Log($"{name} COMPLETE (-180°)");
             if (GetRoot().IsAllComplete())
             {
+                GetRoot().ScaleUp();
                 OnStickCompleteEvent?.Invoke();
             }
         }
 
         _isRotating = false;
+    }
+
+    public void ScaleUp()
+    {
+        transform.DOKill();
+        transform.DOScale(1.3f, 0.4f).From(1f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            transform.DOScale(0f, 0.3f).SetEase(Ease.Linear);
+        });
     }
 
     private void OnTriggerEnter(Collider other)

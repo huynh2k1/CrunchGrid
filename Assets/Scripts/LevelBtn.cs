@@ -7,7 +7,7 @@ public class LevelBtn : MonoBehaviour
     public int ID;
     [SerializeField] Button _btn;
     [SerializeField] GameObject _lock;
-
+    [SerializeField] Text _txtLevel;
     public event Action<int> OnClickThisEvent;
 
     private void Awake()
@@ -24,6 +24,7 @@ public class LevelBtn : MonoBehaviour
     {
         ID = id;
         CheckUnlock();
+        UpdateTextLevel();
     }
 
     void OnClickThis()
@@ -55,5 +56,10 @@ public class LevelBtn : MonoBehaviour
         _btn.interactable = false;
         _btn.GetComponent<Image>().raycastTarget = false;
         _lock.SetActive(true);
+    }
+
+    void UpdateTextLevel()
+    {
+        _txtLevel.text = (ID + 1).ToString();
     }
 }

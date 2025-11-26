@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class Manager : baseManager
@@ -68,15 +69,18 @@ public class Manager : baseManager
     public void NextLevel()
     {
         uiManager.EnableGame();
-        levelCtrl.CheckIncreaseLevel();
         levelCtrl.InitLevel();
     }
 
     public override void WinGame()
     {
         base.WinGame();
+        uiManager.DisableUI(UI.Game);
         levelCtrl.CheckIncreaseLevel();
-        uiManager.EnableUI(UI.Win);
+        DOVirtual.DelayedCall(1f, () =>
+        {
+            uiManager.EnableUI(UI.Win);
+        });
     }
 
     public override void LoseGame()

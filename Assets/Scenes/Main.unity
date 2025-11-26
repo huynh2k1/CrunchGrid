@@ -310,7 +310,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listLevel:
-  - {fileID: 3825190492349779002, guid: b2a454a0f0a72d7488c016f9bcc6801e, type: 3}
+  - {fileID: 6135177121599462401, guid: 067930396509ca6448c91b9bc408ef7b, type: 3}
+  - {fileID: 4333528204392577178, guid: a0dfd3095f0959e43a1c4b7ef140b42a, type: 3}
+  - {fileID: 2448092125884852642, guid: 71718cf60e246d84ea7eb38d2ba0c459, type: 3}
+  - {fileID: 1689703641640528245, guid: 4a0bd264d856fea47b485d921242e724, type: 3}
+  - {fileID: 8385673197377560388, guid: 3bb4bd46fcb8dc24b8d24ce6954bcde4, type: 3}
+  - {fileID: 491072410245602135, guid: 8ecaad9522fa61b44bf2414acf31a546, type: 3}
+  - {fileID: 1592699693517553145, guid: 4af32d50221165f4c9023ace91d670b6, type: 3}
+  - {fileID: 1777129794535826777, guid: 3701b5d83425e4f49b225f6a90206eaf, type: 3}
+  - {fileID: 9061381634293235443, guid: 573684349f4bc6e4a9a45f07d5cd7603, type: 3}
+  - {fileID: 7800065605531081423, guid: 02717caee9146f740a98684cb4da77c2, type: 3}
   _curLevel: {fileID: 0}
 --- !u!1001 &230145728
 PrefabInstance:
@@ -1754,13 +1763,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.258819, y: 0, z: 0, w: 0.9659259}
-  m_LocalPosition: {x: 0, y: -5, z: -10}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -11.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -30, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963453069
 GameObject:
   m_ObjectHideFlags: 0
@@ -4462,7 +4471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2045804325
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4729,6 +4738,23 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 333999884}
     m_Modifications:
+    - target: {fileID: 1002530503602765347, guid: 3192d661119c48b46b9123029116a1c7, type: 3}
+      propertyPath: m_Text
+      value: Click on a lock to fold it in. Clear free locks first to finish levels
+        efficiently.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002530503602765347, guid: 3192d661119c48b46b9123029116a1c7, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002530503602765347, guid: 3192d661119c48b46b9123029116a1c7, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 57
+      objectReference: {fileID: 0}
+    - target: {fileID: 1737358333687534639, guid: 3192d661119c48b46b9123029116a1c7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6997646604869853327, guid: 3192d661119c48b46b9123029116a1c7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

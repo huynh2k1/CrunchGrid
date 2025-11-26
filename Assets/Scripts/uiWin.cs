@@ -23,6 +23,10 @@ public class uiWin : basePanel
 
     void ReplayClicked()
     {
+        if(DataPref.CurLevel > 0)
+        {
+            DataPref.CurLevel--;
+        }
         Disable(() =>
         {
             ClickReplayAction?.Invoke();

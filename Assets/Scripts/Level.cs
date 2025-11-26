@@ -26,7 +26,7 @@ public class Level : MonoBehaviour
     {
         foreach(var s in sticks)
         {
-            s.OnStickCompleteEvent += CheckWin;
+            s.OnStickCompleteEvent += HandleStickCompleteEvent;
         }
     }
 
@@ -34,13 +34,15 @@ public class Level : MonoBehaviour
     {
         foreach (var s in sticks)
         {
-            s.OnStickCompleteEvent -= CheckWin;
+            s.OnStickCompleteEvent -= HandleStickCompleteEvent;
         }
         
     }
 
-    public void CheckWin()
+    public void HandleStickCompleteEvent()
     {
+        CheckUnlockSticks();
+
         if (IsAllStickComplete())
         {
             Manager.I.WinGame();
@@ -55,6 +57,17 @@ public class Level : MonoBehaviour
                 return false;
         }
         return true;
+    }
+
+    public void CheckUnlockSticks()
+    {
+        foreach(var stick in sticks)
+        {
+            if(stick.isLocked == true)
+            {
+                stick.Unlock();
+            }
+        }
     }
 
     public void Destroy()
