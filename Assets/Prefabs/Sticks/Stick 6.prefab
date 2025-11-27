@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1757890553558601400}
+  m_Father: {fileID: 2036256875759104696}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6124327715681838202
 MeshFilter:
@@ -140,18 +140,22 @@ PrefabInstance:
       objectReference: {fileID: 4117648229553967175, guid: 2256ae35229cedc458ceece3e2f0c9a5, type: 3}
     - target: {fileID: 5385462082327929776, guid: f3d4aa5d850996949b8d54afbf28bdce, type: 3}
       propertyPath: m_Name
-      value: Stick Variant
+      value: Stick 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632579311456699604, guid: f3d4aa5d850996949b8d54afbf28bdce, type: 3}
+      propertyPath: '_stickPrefabs.Array.data[5]'
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 918858088743516311, guid: f3d4aa5d850996949b8d54afbf28bdce, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 641486291740673175, guid: f3d4aa5d850996949b8d54afbf28bdce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3669963759111459132}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3d4aa5d850996949b8d54afbf28bdce, type: 3}
---- !u!4 &1757890553558601400 stripped
+--- !u!4 &2036256875759104696 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 918858088743516311, guid: f3d4aa5d850996949b8d54afbf28bdce, type: 3}
+  m_CorrespondingSourceObject: {fileID: 641486291740673175, guid: f3d4aa5d850996949b8d54afbf28bdce, type: 3}
   m_PrefabInstance: {fileID: 1487657602835625519}
   m_PrefabAsset: {fileID: 0}

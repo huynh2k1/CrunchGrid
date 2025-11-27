@@ -12,6 +12,9 @@ public class Stick : MonoBehaviour
 
     [SerializeField] Transform _anchorPos;
     [SerializeField] GameObject _locked;
+
+    [SerializeField] ParticleSystem _unlockEffect;
+
     BoxCollider _boxCollider;
     public Stick _stickParent;
 
@@ -63,6 +66,8 @@ public class Stick : MonoBehaviour
 
     public void Unlock()
     {
+        _unlockEffect.Play();
+        soundManager.I.PlayAudioType(TypeAudio.STICKUNLOCK);
         isLocked = false;
         ShowLock(false);
     }
@@ -96,6 +101,7 @@ public class Stick : MonoBehaviour
                 // Quay ngược lại nếu bị va chạm
                 transform.localEulerAngles = new Vector3(0, 0, _previousAngle);
                 _isRotating = false;
+                soundManager.I.PlayAudioType(TypeAudio.HIT);
                 yield break;
             }
 
@@ -108,9 +114,12 @@ public class Stick : MonoBehaviour
         if (Mathf.Approximately(targetAngle, 180f))
         {
             Complete();
+
             //Debug.Log($"{name} COMPLETE (-180°)");
             if (GetRoot().IsAllComplete())
             {
+                Manager.I.PlayEffectComplete(GetRoot().transform.position);
+                soundManager.I.PlayAudioType(TypeAudio.STICKCOMPLETE);
                 GetRoot().ScaleUp();
                 OnStickCompleteEvent?.Invoke();
             }
@@ -178,10 +187,24 @@ public class Stick : MonoBehaviour
             childStick = null;
         }
 
-        childStick = Instantiate(_stickPrefabs[UnityEngine.Random.Range(0, _stickPrefabs.Length - 1)], _anchorPos.position, Quaternion.identity);
+        // Random prefab
+        var prefab = _stickPrefabs[UnityEngine.Random.Range(0, _stickPrefabs.Length)];
+
+        // Tạo stick mới
+#if UNITY_EDITOR
+        // Tạo đúng prefab instance trong EDITOR
+        childStick = (Stick)UnityEditor.PrefabUtility.InstantiatePrefab(prefab, transform);
+
+        // Set position/rotation
+        childStick.transform.position = _anchorPos.position;
+        childStick.transform.localRotation = Quaternion.Euler(0, 0, _angle);
+#else
+    // Runtime Instantiate
+    childStick = Instantiate(prefab, _anchorPos.position, Quaternion.Euler(0, 0, _angle));
+    childStick.SetParent(transform);
+#endif
+
         childStick._stickParent = this;
-        childStick.SetParent(transform);
-        childStick.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, _angle));
     }
 
     public void SetParent(Transform parent)

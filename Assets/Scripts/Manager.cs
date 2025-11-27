@@ -6,6 +6,8 @@ public class Manager : baseManager
     public static Manager I;
     [SerializeField] uiManager uiManager;
     [SerializeField] LevelCtrl levelCtrl;
+
+    [SerializeField] ParticleSystem _completeEffect;
     private void Awake()
     {
         I = this;
@@ -79,6 +81,7 @@ public class Manager : baseManager
         levelCtrl.CheckIncreaseLevel();
         DOVirtual.DelayedCall(1f, () =>
         {
+            soundManager.I.PlayAudioType(TypeAudio.WIN);
             uiManager.EnableUI(UI.Win);
         });
     }
@@ -87,5 +90,11 @@ public class Manager : baseManager
     {
         base.LoseGame();
         uiManager.EnableUI(UI.Lose);
+    }
+
+    public void PlayEffectComplete(Vector3 pos)
+    {
+        _completeEffect.transform.position = pos;
+        _completeEffect.Play();
     }
 }

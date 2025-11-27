@@ -44,6 +44,7 @@ public class buttonEffect : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         tween = transform.DOScale(initScale, timeTween)
             .SetEase(Ease.OutElastic, 1.2f, 0.5f);
 
+        soundManager.I.PlayAudioType(TypeAudio.CLICK);    
         if (button && button.interactable)
             button.onClick.Invoke();
 
