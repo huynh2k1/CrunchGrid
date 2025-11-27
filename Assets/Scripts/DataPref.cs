@@ -18,15 +18,15 @@ public static class DataPref
         set => PlayerPrefs.SetInt("LevelUnlock", value);
     }
 
-    public static bool Sound
+    public static float Sound
     {
-        get => PlayerPrefs.GetInt("Sound", 0) == 0;
-        set => PlayerPrefs.SetInt("Sound", value ? 0 : 1);  
+        get => PlayerPrefs.GetFloat("Sound", 1);
+        set => PlayerPrefs.SetFloat("Sound", value);  
     }
 
-    public static bool Music
+    public static float Music
     {
-        get => PlayerPrefs.GetInt("Music", 0) == 0;
-        set => PlayerPrefs.SetInt("Music", value ? 0 : 1);  
+        get => PlayerPrefs.GetFloat("Music", 1);
+        set => PlayerPrefs.SetFloat("Music", value);  
     }
 }

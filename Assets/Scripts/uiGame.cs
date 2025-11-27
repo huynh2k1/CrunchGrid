@@ -10,6 +10,8 @@ public class uiGame : baseUI
     [SerializeField] Button _btnHome;
     [SerializeField] Button _btnReplay;
 
+    [SerializeField] Text _txtLevel;
+
     public static Action SettingClickEvent;
     public static Action HomeClickEvent;
     public static Action ReplayClickEvent;
@@ -19,6 +21,17 @@ public class uiGame : baseUI
         _btnSetting.onClick.AddListener(SettingClicked);
         _btnHome.onClick.AddListener(HomeClicked);
         _btnReplay.onClick.AddListener(ReplayClicked);  
+    }
+
+    public override void Enable()
+    {
+        base.Enable();
+        UpdateTextLevel();
+    }
+
+    void UpdateTextLevel()
+    {
+        _txtLevel.text = $"Level {DataPref.CurLevel + 1}";
     }
 
     void SettingClicked()

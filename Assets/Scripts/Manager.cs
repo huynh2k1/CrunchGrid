@@ -70,6 +70,7 @@ public class Manager : baseManager
 
     public void NextLevel()
     {
+        state = State.Playing;
         uiManager.EnableGame();
         levelCtrl.InitLevel();
     }

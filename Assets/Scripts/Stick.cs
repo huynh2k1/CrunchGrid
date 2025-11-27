@@ -51,10 +51,13 @@ public class Stick : MonoBehaviour
 
     void OnMouseDown()
     {
+        if (Manager.I.state != baseManager.State.Playing)
+            return;
         if (GetRoot().isLocked)
             return;
         if (_isRotating) return; // đang xoay → không cho click tiếp
 
+        soundManager.I.PlayAudioType(TypeAudio.CLICK);
         StickCurrentlyRotating = this;
         StartCoroutine(RotateStep());
     }

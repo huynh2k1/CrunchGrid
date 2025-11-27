@@ -74,7 +74,7 @@ public class basePanel : baseUI
         TweenMain(true);
     }
 
-    public void Disable(Action actionDone)
+    public virtual void Disable(Action actionDone)
     {
         TweenMain(false, () =>
         {

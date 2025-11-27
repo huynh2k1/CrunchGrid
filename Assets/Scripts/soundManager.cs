@@ -29,7 +29,7 @@ public class soundManager : MonoBehaviour
     public virtual void Init()
     {
         queue_sources = new Queue<AudioSource>(_sourceSounds);
-        LoadVolumeMusic();
+        SaveLoadVolume();
         PlayMusic();
     }
 
@@ -45,17 +45,17 @@ public class soundManager : MonoBehaviour
         LoadVolumeMusic();
     }
 
-    void LoadVolumeSounds()
+    public void LoadVolumeSounds()
     {
         foreach (var sound in _sourceSounds)
         {
-            //sound.volume = PlayerPrefData.SoundVolume;
+            sound.volume = DataPref.Sound;
         }
     }
 
-    void LoadVolumeMusic()
+    public void LoadVolumeMusic()
     {
-        //_sourceMusic.volume = PlayerPrefData.MusicVolume;
+        _sourceMusic.volume = DataPref.Music;
     }
 
 
